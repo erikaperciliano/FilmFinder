@@ -18,8 +18,8 @@ func main() {
 }
 
 func run() error {
-	db := make(map[string]string)
-	handler := api.NewHandler(db)
+	apiKey := os.Getenv("OMDB_KEY")
+	handler := api.NewHandler(apiKey)
 
 	s := http.Server{
 		ReadTimeout: 10 * time.Second,
